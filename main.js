@@ -44,7 +44,7 @@ var server = _http.createServer(function(request, response) {
 
 	// See http://www.yelp.com/developers/documentation/v2/search_api
 	var search_restaurant = function (category, callback) {
-		yelp.search({term: "", ll: "37.77951,-122.39071", radius_filter: "1600", category_filter: category, limit : "20"}, function(error, data) {
+		yelp.search({term: "", ll: "37.77951,-122.39071", radius_filter: "1250", category_filter: category, limit : "20"}, function(error, data) {
 			//console.log(error);
 			console.log('get ' + category);
 			callback(null, data.businesses);
