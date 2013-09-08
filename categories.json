@@ -1,5 +1,6 @@
 {
-	"american" : "newamerican,Traditional,tradamerican,diners,steak,breakfast_brunch",
+	"american" : "newamerican,Traditional,tradamerican,steak",
+	"diners" : "breakfast_brunch,diners",
 	"burgers" : "burgers,gastropubs,cheesesteaks",
 	"latin" : "caribbean,latin,peruvian,cuban",
 	"chinese" : "chinese,taiwanese",
