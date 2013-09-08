@@ -1,6 +1,7 @@
 {
 	"american" : "newamerican,Traditional,tradamerican,diners,steak",
 	"burgers" : "burgers,gastropubs,cheesesteaks",
+	"latin" : "caribbean,latin,peruvian,cuban",
 	"chinese" : "chinese,taiwanese",
 	"sandwiches" : "delis,sandwiches,cafes,salad,soup",
 	"indian" : "indpak,bangladeshi",
