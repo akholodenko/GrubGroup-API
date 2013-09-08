@@ -1,0 +1,12 @@
+{
+	"american" : "newamerican,Traditional,tradamerican,diners,steak",
+	"burgers" : "burgers,gastropubs,cheesesteaks",
+	"chinese" : "chinese,taiwanese",
+	"sandwiches" : "delis,sandwiches,cafes,salad,soup",
+	"indian" : "indpak,bangladeshi",
+	"japanese" : "japanese,sushi",
+	"mexican" : "mexican,tex-mex",
+	"mediterranean" : "mideastern,halal,afghani,persian,pakistani,arabian,turkish,greek,mediterranean",
+	"thai" : "thai,asianfusion,himalayan",
+	"vegetarian" : "vegetarian"
+}

@@ -6,6 +6,7 @@ global.MODULE_PATH = 'grubgroup/';
 var _http = require("http");
 var _und = require('underscore');
 var _url = require('url');
+var _async = require('async');
 
 // GrubGroup defined modules
 var _um_utils = require(MODULE_PATH + 'utils');
@@ -30,13 +31,27 @@ var server = _http.createServer(function(request, response) {
 		token_secret: "f4gAU_UTewoTJvHllTDJ8Hi6g-k"
 	});
 
+	// get list of Yelp categories of restaurants
+	var categories = _und.toArray(_um_utils.get_categories());
+
 	// write headers
 	response.writeHead(200, {"Content-Type": "application/json"});
 
+	var results = [];
+
 	// See http://www.yelp.com/developers/documentation/v2/search_api
-	yelp.search({term: "", ll: "37.77951,-122.39071", radius_filter: "1600", category_filter: "restaurants"}, function(error, data) {
-		//console.log(error);
-		response.write(JSON.stringify(data));
+	var search_restaurant = function (category, callback) {
+		yelp.search({term: "", ll: "37.77951,-122.39071", radius_filter: "2400", category_filter: category, limit : "1"}, function(error, data) {
+			//console.log(error);
+			console.log('get ' + category);
+			callback(null, data.businesses);
+			//response.write(JSON.stringify(data.businesses));
+			//response.end();
+		});
+	}
+
+	_async.map(categories, search_restaurant, function (error, results) {
+		response.write(JSON.stringify(_und.compact(_und.flatten(results, 'shallow'))));
 		response.end();
 	});
 });
