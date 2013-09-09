@@ -1,5 +1,6 @@
 {
 	"american" : "newamerican,Traditional,tradamerican,steak",
+	"european" : "german,austrian,british,fishnchips",
 	"diners" : "breakfast_brunch,diners",
 	"burgers" : "burgers,gastropubs,cheesesteaks,sportsbars",
 	"latin" : "caribbean,latin,peruvian,cuban",
@@ -9,6 +10,5 @@
 	"japanese" : "japanese,sushi",
 	"mexican" : "mexican,tex-mex",
 	"mediterranean" : "mideastern,halal,afghani,persian,pakistani,arabian,turkish,greek,mediterranean",
-	"thai" : "thai,asianfusion,himalayan",
-	"vegetarian" : "vegetarian"
+	"thai" : "thai,asianfusion,himalayan,vegetarian,vietnamese"
 }
