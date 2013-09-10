@@ -58,13 +58,11 @@ var server = _http.createServer(function(request, response) {
 	}
 
 	_async.map(categories, search_restaurant, function (error, results) {
-		// 1. move all nested objects one level higher, so merge results into one array
-		// 2. remove any nulls or blanks
-		// 3. randomize the order of the objects in the array
-		// 4. get random index of item and display that item
-		results = _und.shuffle(_und.compact(_und.flatten(results, 'shallow')));
+		results = _und.compact(_und.flatten(results, 'shallow'));	// 1. move all nested objects one level higher, so merge results into one array; remove any nulls or blanks
+		results = _und.filter(results, function (place) { return place.rating >= 3; });	// 2. remove any results with less than 3 stars
+		results = _und.shuffle(results);	// 3. randomize the order of the objects in the array
 
-		var output = JSON.stringify(results[_und.random(results.length - 1)]);
+		var output = JSON.stringify(results[_und.random(results.length - 1)]);	// 4. get random index of item and display that item
 
 		// check if callback was provided
 		if(callback == null) response.write(output);
