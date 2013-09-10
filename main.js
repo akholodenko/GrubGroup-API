@@ -18,6 +18,10 @@ var server = _http.createServer(function(request, response) {
 	// parse data input
 	var query = _url.parse(request.url, true).query;
 	var callback = (query.callback != undefined) ? query.callback : null;
+	var latitude = (query.lat != undefined) ? query.lat : '37.77951';
+	var longitude = (query.lon != undefined) ? query.lon : '-122.39071';
+	var radius = (query.radius != undefined) ? query.radius : '1250';
+
 	/*
 	var path_url = _url.parse(request.url, true).pathname;
 	var path_object = _und.compact(path_url.split('/'));
@@ -44,7 +48,7 @@ var server = _http.createServer(function(request, response) {
 
 	// See http://www.yelp.com/developers/documentation/v2/search_api
 	var search_restaurant = function (category, callback) {
-		yelp.search({term: "", ll: "37.77951,-122.39071", radius_filter: "1250", category_filter: category, limit : "20"}, function(error, data) {
+		yelp.search({term: "", ll: latitude + ',' + longitude, radius_filter: radius, category_filter: category, limit : "20"}, function(error, data) {
 			//console.log(error);
 			console.log('get ' + category);
 			callback(null, data.businesses);
