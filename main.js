@@ -6,7 +6,6 @@ global.MODULE_CONTROLLER_PATH = 'controllers/';
 var _http = require("http");
 var _und = require('underscore');
 var _url = require('url');
-var _async = require('async');
 
 // GrubGroup defined modules
 var _um_utils = require(MODULE_PATH + 'utils');
