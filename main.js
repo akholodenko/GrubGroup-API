@@ -33,6 +33,7 @@ var server = _http.createServer(function(request, response) {
 	console.log('action: ' + action);
 
 	var input = new Object();
+	input.action = action;
 	input.callback = callback;
 	input.latitude = latitude;
 	input.longitude = longitude;
