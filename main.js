@@ -1,6 +1,7 @@
 // constants
 global.MODULE_PATH = 'grubgroup/';
 global.MODULE_CONTROLLER_PATH = 'controllers/';
+global.PORT = "80";
 
 // 3rd party modules
 var _http = require("http");
@@ -56,5 +57,12 @@ var server = _http.createServer(function(request, response) {
 
 });
 
-server.listen(80);
+/**	process any app exec arguments	*/
+process.argv.forEach(function (val, index, array) {
+	var input = val.split('=');
+	if(input[0] == 'port')
+		PORT = input[1];
+});
+
+server.listen(PORT);
 console.log("Server is listening");
